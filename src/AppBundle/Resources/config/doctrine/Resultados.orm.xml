@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Resultados" table="resultados">
+    <indexes>
+      <index name="fk_resultado_matriz" columns="id_matriz"/>
+    </indexes>
+    <id name="idResultado" type="integer" column="id_resultado">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombreResultado" type="string" column="nombre_resultado" length="200" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">nombre de resultado</option>
+      </options>
+    </field>
+    <many-to-one field="idMatriz" target-entity="Matriz" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_matriz" referenced-column-name="id_matriz"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

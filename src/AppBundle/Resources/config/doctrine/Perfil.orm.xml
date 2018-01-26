@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Perfil" table="perfil">
+    <indexes>
+      <index name="fk_perfil_proyecto" columns="id_proyecto"/>
+    </indexes>
+    <id name="idPerfil" type="integer" column="id_perfil">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idFacultad" type="integer" column="id_facultad" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">id de facultad a la que pertenece el proyecto</option>
+      </options>
+    </field>
+    <field name="decano" type="string" column="decano" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">decano de la facultad que ejecuta el proyecto</option>
+      </options>
+    </field>
+    <field name="idAreaConocimiento" type="integer" column="id_area_conocimiento" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">id de area de conocimiento</option>
+      </options>
+    </field>
+    <field name="coordinadorProyecto" type="string" column="coordinador_proyecto" length="200" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">coordinador del proyecto</option>
+      </options>
+    </field>
+    <field name="equipoResponsable" type="string" column="equipo_responsable" length="600" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">personas responsables en la ejecucion del proyecto</option>
+      </options>
+    </field>
+    <field name="institucionContraparte" type="string" column="institucion_contraparte" length="300" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">institucion que trabaja en conjunto para la ejecucion del proyecto</option>
+      </options>
+    </field>
+    <field name="nombreProyecto" type="string" column="nombre_proyecto" length="500" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">nombre del proyecto</option>
+      </options>
+    </field>
+    <field name="idLinea" type="integer" column="id_linea" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">id de linea</option>
+      </options>
+    </field>
+    <field name="idOds" type="integer" column="id_ods" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">id de ods</option>
+      </options>
+    </field>
+    <field name="totalPoblacion" type="integer" column="total_poblacion" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">total de poblacion beneficiada </option>
+      </options>
+    </field>
+    <field name="pHombres" type="integer" column="p_hombres" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">porcentaje de hombre de la poblacion beneficiada</option>
+      </options>
+    </field>
+    <field name="pMujeres" type="integer" column="p_mujeres" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">porcentaje de mujeres de la poblacion beneficiada</option>
+      </options>
+    </field>
+    <field name="areaGeografica" type="string" column="area_geografica" length="600" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">area geografic dondese ejecuta el proyecto</option>
+      </options>
+    </field>
+    <field name="presentacion" type="string" column="presentacion" length="2000" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">presentacion del proyecto</option>
+      </options>
+    </field>
+    <field name="antecedentes" type="string" column="antecedentes" length="1500" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">antecedentes del proyecto</option>
+      </options>
+    </field>
+    <field name="justificacion" type="string" column="justificacion" length="4500" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">justificacion del proyecto</option>
+      </options>
+    </field>
+    <many-to-one field="idProyecto" target-entity="Proyectos" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_proyecto" referenced-column-name="id_proyecto"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

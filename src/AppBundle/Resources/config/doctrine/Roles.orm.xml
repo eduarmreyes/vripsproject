@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Roles" table="roles">
+    <id name="idRoles" type="integer" column="id_roles">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombreRol" type="integer" column="nombre_rol" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">nombre de rol</option>
+      </options>
+    </field>
+    <field name="descripcion" type="integer" column="descripcion" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">descripción del rol</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

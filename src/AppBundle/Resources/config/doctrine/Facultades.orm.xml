@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Facultades" table="facultades">
+    <id name="idFaacultad" type="integer" column="id_faacultad">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombreFacultad" type="string" column="nombre_facultad" length="200" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">nombre de facultad </option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

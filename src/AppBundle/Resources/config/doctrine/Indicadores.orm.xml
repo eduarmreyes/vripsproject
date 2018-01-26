@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Indicadores" table="indicadores">
+    <indexes>
+      <index name="fk_indicador_matriz" columns="id_matriz"/>
+    </indexes>
+    <id name="idIndicadores" type="integer" column="id_indicadores">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombreIndicador" type="integer" column="nombre_indicador" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">nombre del indicador</option>
+      </options>
+    </field>
+    <field name="objetivo" type="integer" column="objetivo" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">objetivo del indicador</option>
+      </options>
+    </field>
+    <field name="medioVerificacion" type="integer" column="medio_verificacion" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">medio de verificacion del indicador</option>
+      </options>
+    </field>
+    <field name="supuesto" type="integer" column="supuesto" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">supuesto del indicador</option>
+      </options>
+    </field>
+    <many-to-one field="idMatriz" target-entity="Matriz" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_matriz" referenced-column-name="id_matriz"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
