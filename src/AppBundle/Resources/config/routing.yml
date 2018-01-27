@@ -1,0 +1,4 @@
+api_areasconocimiento:
+    path:     /api/areasconocimiento
+    defaults: { _controller: AppBundle:Api:GetAreasDeConocimientoAction}
+    methods:  [GET]
