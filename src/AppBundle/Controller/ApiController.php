@@ -1,4 +1,6 @@
 <?php
+// src/AppBundle/Controller/ApiController.php
+ 
 namespace AppBundle\Controller;
  
 use AppBundle\Entity\AreasConocimiento;
@@ -11,8 +13,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-
-
 
 class ApiController extends FOSRestController
 {
